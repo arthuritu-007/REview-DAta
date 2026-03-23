@@ -1,0 +1,6 @@
+customtkinter
+pandas
+fpdf2
+pillow
+matplotlib
+psycopg2-binary
