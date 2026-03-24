@@ -1,45 +1,52 @@
+from __future__ import annotations
+
+import os
+from typing import Any
 
 import psycopg2
 import psycopg2.extras
 
 class Database:
     """Manages the connection and queries to the PostgreSQL database."""
-    def __init__(self):
-        # IMPORTANTE: Reemplaza esto con tus credenciales reales de PostgreSQL.
-        self.conn_params = {
-            "host": "localhost",
-            "port": "5432",
-            "user": "postgres",
-            "password": "1234",
-            "dbname": "tu_db"
-        }
-        self.conn = None
+
+    def __init__(self, conn_params: dict[str, str] | None = None):
+        self.conn_params = conn_params if conn_params is not None else self._load_conn_params()
+        self.conn: psycopg2.extensions.connection | None = None
         self.connect()
 
-    def connect(self):
+    def _load_conn_params(self) -> dict[str, str] | None:
+        user = os.getenv("PGUSER") or os.getenv("POSTGRES_USER")
+        password = os.getenv("PGPASSWORD") or os.getenv("POSTGRES_PASSWORD")
+        dbname = os.getenv("PGDATABASE") or os.getenv("POSTGRES_DB")
+
+        if not user or not password or not dbname:
+            return None
+
+        return {
+            "host": os.getenv("PGHOST", "localhost"),
+            "port": os.getenv("PGPORT", "5432"),
+            "user": user,
+            "password": password,
+            "dbname": dbname,
+        }
+
+    def connect(self) -> None:
         """Establishes the connection to the database."""
+        if not self.conn_params:
+            self.conn = None
+            return
+
         try:
-            # Reemplaza estas credenciales con tus datos reales antes de ejecutar
-            self.conn_params = {
-                "host": "localhost",
-                "port": "5432",
-                "user": "postgres",
-                "password": "tu_password",
-                "dbname": "tu_db"
-            }
-            # Solo intentar conectar si no son los valores por defecto
-            if self.conn_params["password"] != "tu_password":
-                self.conn = psycopg2.connect(**self.conn_params)
-            else:
-                print("Aviso: Credenciales de base de datos no configuradas en database.py")
-                self.conn = None
-        except Exception as e:
-            print(f"Error al conectar a la base de datos: {e}")
+            self.conn = psycopg2.connect(**self.conn_params)
+        except Exception as exc:
+            print(f"Error al conectar a la base de datos: {exc}")
             self.conn = None
 
-    def execute_query(self, query, params=None):
+    def execute_query(self, query: str, params: tuple[Any, ...] | None = None) -> bool:
         """Executes a query (INSERT, UPDATE, DELETE) and commits."""
-        if not self.conn: return False
+        if not self.conn:
+            return False
+
         try:
             with self.conn.cursor() as cur:
                 cur.execute(query, params)
@@ -50,9 +57,13 @@ class Database:
             self.conn.rollback()
             return False
 
-    def fetch_all(self, query, params=None):
+    def fetch_all(
+        self, query: str, params: tuple[Any, ...] | None = None
+    ) -> list[dict[str, Any]]:
         """Executes a SELECT query and returns all results as dicts."""
-        if not self.conn: return []
+        if not self.conn:
+            return []
+
         try:
             with self.conn.cursor(cursor_factory=psycopg2.extras.DictCursor) as cur:
                 cur.execute(query, params)
@@ -61,7 +72,7 @@ class Database:
             print(f"Fallo la obtención de datos: {e}")
             return []
 
-    def close(self):
+    def close(self) -> None:
         """Closes the database connection."""
         if self.conn:
             self.conn.close()

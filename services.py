@@ -1,3 +1,7 @@
+from __future__ import annotations
+
+from typing import Any
+
 from interfaces import IDataService
 from database import Database
 
@@ -6,18 +10,34 @@ class DataService(IDataService):
     def __init__(self, db: Database):
         self._db = db
 
-    def get_all_datasets(self) -> list:
+    def get_all_datasets(self) -> list[dict[str, Any]]:
         if not self._db.conn:
             return [
-                {"id": "1", "name": "Ejemplo Offline", "type": "CSV", "records": 100, "date": "09-03-2026", "status": "Offline"}
+                {
+                    "id": "1",
+                    "name": "Ejemplo Offline",
+                    "type": "CSV",
+                    "records": 100,
+                    "date": "09-03-2026",
+                    "status": "Offline",
+                }
             ]
         # Ajustado a tus columnas reales: nombre_archivo, formato, total_registros, fecha_carga
         query = "SELECT id, nombre_archivo as name, formato as type, total_registros as records, fecha_carga as date FROM datasets ORDER BY fecha_carga DESC;"
         return self._db.fetch_all(query)
 
-    def add_dataset(self, name: str, file_type: str, records: int) -> dict:
+    def add_dataset(
+        self, name: str, file_type: str, records: int
+    ) -> dict[str, Any] | None:
         if not self._db.conn:
-            return {"id": "MOCK", "name": name, "type": file_type, "records": records, "date": "HOY", "status": "Mock"}
+            return {
+                "id": "MOCK",
+                "name": name,
+                "type": file_type,
+                "records": records,
+                "date": "HOY",
+                "status": "Mock",
+            }
         
         # Ajustado a tus columnas reales. He añadido usuario_id con valor 1 por defecto.
         query = """

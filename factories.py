@@ -1,6 +1,12 @@
-import customtkinter as ctk
 from interfaces import IView, IViewFactory, IDataService
-from views_impl import DashboardViewImpl, DatasetViewImpl, ValidationViewImpl, FindingsViewImpl, RecommendationsViewImpl, StatsViewImpl
+from views_impl import (
+    DashboardViewImpl,
+    DatasetViewImpl,
+    FindingsViewImpl,
+    RecommendationsViewImpl,
+    StatsViewImpl,
+    ValidationViewImpl,
+)
 
 class StandardViewFactory(IViewFactory):
     """Concrete Factory implementing IViewFactory (Abstract Factory Pattern)."""

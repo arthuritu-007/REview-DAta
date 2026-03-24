@@ -1,5 +1,3 @@
-import customtkinter as ctk
-
 # Colors - Modern Palette
 COLOR_PRIMARY = "#007BFF"       # Vibrant Blue
 COLOR_SECONDARY = "#6C757D"     # Gray

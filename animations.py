@@ -1,5 +1,17 @@
+from __future__ import annotations
 
-def animate_widget(widget, property_name, start_value, end_value, duration=400, easing_func=None):
+from collections.abc import Callable
+from typing import Any
+
+
+def animate_widget(
+    widget: Any,
+    property_name: str,
+    start_value: float,
+    end_value: float,
+    duration: int = 400,
+    easing_func: Callable[[float], float] | None = None,
+) -> None:
     """
     Anima una propiedad de un widget (relx o rely) durante un tiempo determinado.
     """
@@ -7,7 +19,8 @@ def animate_widget(widget, property_name, start_value, end_value, duration=400, 
         easing_func = lambda p: p * p  # Ease-out-quad
 
     total_steps = duration // 15  # Aproximadamente 60fps
-    if total_steps == 0: total_steps = 1
+    if total_steps == 0:
+        total_steps = 1
     
     current_step = 0
 
@@ -23,8 +36,8 @@ def animate_widget(widget, property_name, start_value, end_value, duration=400, 
         
         if current_step < total_steps:
             widget.after(15, _animate)
-        else:
-            # Asegurar la posición final exacta
-            widget.place_configure(**{property_name: end_value})
+            return
+
+        widget.place_configure(**{property_name: end_value})
 
     _animate()
