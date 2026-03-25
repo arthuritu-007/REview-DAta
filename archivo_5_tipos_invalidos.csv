@@ -1,0 +1,51 @@
+Folio del reporte,Numero de remisión,Numero de operador,Nombre del operador,Fecha de reporte,Descripción,O.C.,Origen-Destino,Ruta autorizada,Cliente,Origen,CP,Ciudad,Colonia,Calle,Consumo diésel,Casetas,Hora salida,Hora llegada,Placas,Remolques,Dollies,Check
+FR-0,4823,ERROR,Operador 10,2025-07-24,Entrega,81473,CDMX-Veracruz,Ruta 1,Cliente 20,CDMX,55515,Ciudad,Centro,Calle 16,66.87,2,11:32,23:58,ABC-310,3,No,OK
+FR-1,7582,ERROR,Operador 3,2025-07-17,Entrega,52870,CDMX-Veracruz,Ruta 1,Cliente 11,CDMX,67134,Ciudad,Centro,Calle 27,106.13,5,6:26,9:10,ABC-603,3,Sí,Botón pánico
+FR-2,8262,ERROR,Operador 4,2025-06-09,Recolección,33453,CDMX-Veracruz,Ruta 1,Cliente 5,CDMX,67445,Ciudad,Centro,Calle 75,295.68,8,10:12,10:45,ABC-893,1,No,Botón pánico
+FR-3,7455,ERROR,Operador 8,2025-04-17,Entrega,36327,CDMX-Veracruz,Ruta 1,Cliente 15,CDMX,77857,Ciudad,Centro,Calle 72,51.23,1,9:46,1:58,ABC-729,3,Sí,Botón pánico
+FR-4,7116,ERROR,Operador 48,2025-08-29,Entrega,72513,CDMX-Veracruz,Ruta 1,Cliente 2,CDMX,23447,Ciudad,Centro,Calle 45,128.67,1,17:15,21:39,ABC-378,2,No,Botón pánico
+FR-5,5812,ERROR,Operador 18,2026-03-04,Recolección,86371,CDMX-Veracruz,Ruta 1,Cliente 18,CDMX,75424,Ciudad,Centro,Calle 52,71.52,5,4:22,23:55,ABC-368,1,No,OK
+FR-6,6147,ERROR,Operador 2,2026-03-21,Recolección,37944,CDMX-Veracruz,Ruta 1,Cliente 1,CDMX,84044,Ciudad,Centro,Calle 56,71.27,8,4:16,23:24,ABC-293,2,No,Botón pánico
+FR-7,9476,ERROR,Operador 48,2025-05-18,Recolección,39159,CDMX-Veracruz,Ruta 1,Cliente 2,CDMX,30242,Ciudad,Centro,Calle 42,276.87,1,6:29,10:53,ABC-571,3,No,Botón pánico
+FR-8,2953,ERROR,Operador 47,2025-04-12,Recolección,60918,CDMX-Veracruz,Ruta 1,Cliente 13,CDMX,66329,Ciudad,Centro,Calle 10,240.02,7,10:19,16:21,ABC-837,3,Sí,Botón pánico
+FR-9,7552,ERROR,Operador 12,2025-06-02,Recolección,35656,CDMX-Veracruz,Ruta 1,Cliente 9,CDMX,87796,Ciudad,Centro,Calle 43,125.34,5,7:32,6:11,ABC-449,3,No,Cambio ruta
+FR-10,4060,ERROR,Operador 37,2025-10-20,Entrega,33777,CDMX-Veracruz,Ruta 1,Cliente 16,CDMX,87501,Ciudad,Centro,Calle 12,230.46,10,10:39,22:31,ABC-227,2,Sí,Botón pánico
+FR-11,2835,ERROR,Operador 36,2025-07-18,Entrega,24286,CDMX-Veracruz,Ruta 1,Cliente 16,CDMX,22170,Ciudad,Centro,Calle 17,269.84,5,23:13,11:01,ABC-627,1,No,Cambio ruta
+FR-12,5918,ERROR,Operador 35,2025-06-24,Traslado,76437,CDMX-Veracruz,Ruta 1,Cliente 13,CDMX,70207,Ciudad,Centro,Calle 99,116.99,7,0:57,21:21,ABC-510,1,Sí,Botón pánico
+FR-13,2778,ERROR,Operador 48,2026-03-23,Traslado,55835,CDMX-Veracruz,Ruta 1,Cliente 1,CDMX,14639,Ciudad,Centro,Calle 6,143.63,6,4:41,16:26,ABC-221,2,No,Botón pánico
+FR-14,3721,ERROR,Operador 31,2026-01-10,Recolección,49333,CDMX-Veracruz,Ruta 1,Cliente 9,CDMX,47681,Ciudad,Centro,Calle 5,193.04,10,20:58,19:41,ABC-984,1,Sí,Botón pánico
+FR-15,7807,ERROR,Operador 8,2025-11-24,Entrega,93515,CDMX-Veracruz,Ruta 1,Cliente 12,CDMX,22712,Ciudad,Centro,Calle 36,55.81,7,10:43,21:12,ABC-153,3,Sí,Cambio ruta
+FR-16,6102,ERROR,Operador 5,2026-03-17,Entrega,20654,CDMX-Veracruz,Ruta 1,Cliente 18,CDMX,35913,Ciudad,Centro,Calle 12,203.68,10,7:20,11:07,ABC-540,1,No,OK
+FR-17,7099,ERROR,Operador 8,2025-07-01,Recolección,59088,CDMX-Veracruz,Ruta 1,Cliente 5,CDMX,31706,Ciudad,Centro,Calle 72,171.98,7,23:44,18:07,ABC-123,2,No,Botón pánico
+FR-18,3235,ERROR,Operador 49,2026-01-30,Traslado,99241,CDMX-Veracruz,Ruta 1,Cliente 8,CDMX,21731,Ciudad,Centro,Calle 26,73.11,1,13:21,20:43,ABC-471,3,No,Botón pánico
+FR-19,1990,ERROR,Operador 22,2025-08-30,Entrega,18758,CDMX-Veracruz,Ruta 1,Cliente 6,CDMX,40725,Ciudad,Centro,Calle 26,296.25,7,3:00,15:11,ABC-642,1,Sí,Botón pánico
+FR-20,3663,ERROR,Operador 40,2025-05-14,Entrega,10625,CDMX-Veracruz,Ruta 1,Cliente 9,CDMX,60813,Ciudad,Centro,Calle 25,136.24,6,19:19,15:20,ABC-123,3,No,Cambio ruta
+FR-21,9307,ERROR,Operador 38,2025-11-17,Traslado,66604,CDMX-Veracruz,Ruta 1,Cliente 2,CDMX,31802,Ciudad,Centro,Calle 81,165.59,8,18:56,5:50,ABC-202,2,Sí,Cambio ruta
+FR-22,9879,ERROR,Operador 19,2025-11-22,Entrega,73190,CDMX-Veracruz,Ruta 1,Cliente 2,CDMX,36147,Ciudad,Centro,Calle 66,99.63,8,5:04,15:51,ABC-923,2,No,Botón pánico
+FR-23,3578,ERROR,Operador 9,2025-05-21,Traslado,34184,CDMX-Veracruz,Ruta 1,Cliente 18,CDMX,43781,Ciudad,Centro,Calle 95,149.31,8,19:24,14:28,ABC-292,3,Sí,Botón pánico
+FR-24,7571,ERROR,Operador 9,2025-09-06,Traslado,57113,CDMX-Veracruz,Ruta 1,Cliente 10,CDMX,79220,Ciudad,Centro,Calle 79,217.24,8,7:19,10:05,ABC-497,1,Sí,Botón pánico
+FR-25,3130,ERROR,Operador 50,2026-01-27,Traslado,23014,CDMX-Veracruz,Ruta 1,Cliente 12,CDMX,88739,Ciudad,Centro,Calle 79,194.25,4,0:45,3:23,ABC-313,3,Sí,Botón pánico
+FR-26,9777,ERROR,Operador 15,2025-10-14,Recolección,71754,CDMX-Veracruz,Ruta 1,Cliente 20,CDMX,91902,Ciudad,Centro,Calle 59,288.96,1,6:43,3:36,ABC-690,3,Sí,Cambio ruta
+FR-27,3791,ERROR,Operador 27,2025-12-04,Entrega,87233,CDMX-Veracruz,Ruta 1,Cliente 7,CDMX,37763,Ciudad,Centro,Calle 6,55.87,8,23:31,16:52,ABC-872,2,No,Botón pánico
+FR-28,8192,ERROR,Operador 49,2025-10-11,Traslado,11266,CDMX-Veracruz,Ruta 1,Cliente 6,CDMX,43793,Ciudad,Centro,Calle 67,249.41,10,21:42,4:11,ABC-953,2,No,OK
+FR-29,3346,ERROR,Operador 29,2025-05-18,Recolección,78318,CDMX-Veracruz,Ruta 1,Cliente 8,CDMX,50911,Ciudad,Centro,Calle 53,202.81,4,6:38,14:46,ABC-209,3,No,Botón pánico
+FR-30,9055,ERROR,Operador 26,2026-02-28,Recolección,63995,CDMX-Veracruz,Ruta 1,Cliente 12,CDMX,62037,Ciudad,Centro,Calle 46,129.07,2,1:16,3:36,ABC-887,1,No,OK
+FR-31,6647,ERROR,Operador 28,2025-12-26,Entrega,81499,CDMX-Veracruz,Ruta 1,Cliente 17,CDMX,93098,Ciudad,Centro,Calle 78,226.63,10,13:26,20:16,ABC-434,3,Sí,Botón pánico
+FR-32,8981,ERROR,Operador 35,2025-03-28,Traslado,11397,CDMX-Veracruz,Ruta 1,Cliente 1,CDMX,11513,Ciudad,Centro,Calle 40,188.54,1,1:32,9:12,ABC-999,3,Sí,Botón pánico
+FR-33,3030,ERROR,Operador 21,2026-02-03,Traslado,78725,CDMX-Veracruz,Ruta 1,Cliente 9,CDMX,66426,Ciudad,Centro,Calle 49,249.25,3,23:14,0:24,ABC-712,1,Sí,Botón pánico
+FR-34,4507,ERROR,Operador 18,2026-01-03,Recolección,87846,CDMX-Veracruz,Ruta 1,Cliente 12,CDMX,93481,Ciudad,Centro,Calle 99,176.81,3,6:38,11:32,ABC-991,3,No,OK
+FR-35,9885,ERROR,Operador 4,2025-05-06,Traslado,35292,CDMX-Veracruz,Ruta 1,Cliente 13,CDMX,86965,Ciudad,Centro,Calle 83,259.71,10,15:03,1:35,ABC-812,1,Sí,Botón pánico
+FR-36,3219,ERROR,Operador 46,2026-01-06,Traslado,61016,CDMX-Veracruz,Ruta 1,Cliente 3,CDMX,70819,Ciudad,Centro,Calle 18,95.96,6,13:20,12:42,ABC-684,3,No,Cambio ruta
+FR-37,7530,ERROR,Operador 16,2025-10-30,Entrega,71033,CDMX-Veracruz,Ruta 1,Cliente 20,CDMX,38389,Ciudad,Centro,Calle 95,150.27,5,12:56,18:00,ABC-565,2,No,OK
+FR-38,8414,ERROR,Operador 23,2026-01-31,Traslado,91182,CDMX-Veracruz,Ruta 1,Cliente 14,CDMX,82215,Ciudad,Centro,Calle 31,205.44,2,3:12,21:14,ABC-336,1,No,OK
+FR-39,8489,ERROR,Operador 5,2025-07-30,Recolección,29644,CDMX-Veracruz,Ruta 1,Cliente 2,CDMX,71340,Ciudad,Centro,Calle 32,289.98,6,18:35,21:30,ABC-801,2,No,OK
+FR-40,1577,ERROR,Operador 21,2025-05-19,Traslado,42216,CDMX-Veracruz,Ruta 1,Cliente 11,CDMX,17423,Ciudad,Centro,Calle 9,230.47,3,9:47,13:00,ABC-119,2,Sí,OK
+FR-41,2144,ERROR,Operador 24,2025-11-12,Recolección,50758,CDMX-Veracruz,Ruta 1,Cliente 17,CDMX,17041,Ciudad,Centro,Calle 49,276.69,8,5:06,20:13,ABC-862,1,No,Cambio ruta
+FR-42,8304,ERROR,Operador 31,2025-11-03,Traslado,60381,CDMX-Veracruz,Ruta 1,Cliente 3,CDMX,95935,Ciudad,Centro,Calle 98,71.14,7,23:36,14:28,ABC-117,3,No,OK
+FR-43,7260,ERROR,Operador 3,2025-04-16,Entrega,30026,CDMX-Veracruz,Ruta 1,Cliente 14,CDMX,21094,Ciudad,Centro,Calle 58,240.56,10,4:14,21:24,ABC-319,1,Sí,OK
+FR-44,9455,ERROR,Operador 14,2025-11-15,Entrega,35350,CDMX-Veracruz,Ruta 1,Cliente 16,CDMX,97680,Ciudad,Centro,Calle 44,124.84,2,9:48,4:55,ABC-283,3,Sí,OK
+FR-45,7029,ERROR,Operador 38,2025-09-28,Traslado,57751,CDMX-Veracruz,Ruta 1,Cliente 5,CDMX,76118,Ciudad,Centro,Calle 54,140.95,2,3:59,5:48,ABC-685,1,Sí,Botón pánico
+FR-46,1784,ERROR,Operador 44,2025-11-27,Entrega,26314,CDMX-Veracruz,Ruta 1,Cliente 20,CDMX,24279,Ciudad,Centro,Calle 99,106.54,7,1:44,3:36,ABC-423,1,Sí,Botón pánico
+FR-47,2646,ERROR,Operador 37,2025-05-07,Entrega,62899,CDMX-Veracruz,Ruta 1,Cliente 16,CDMX,25931,Ciudad,Centro,Calle 5,177.89,8,20:51,20:56,ABC-483,2,No,OK
+FR-48,7842,ERROR,Operador 45,2025-07-25,Traslado,60551,CDMX-Veracruz,Ruta 1,Cliente 16,CDMX,47707,Ciudad,Centro,Calle 20,152.09,2,19:37,3:53,ABC-860,1,No,Cambio ruta
+FR-49,3881,ERROR,Operador 20,2025-07-13,Recolección,54489,CDMX-Veracruz,Ruta 1,Cliente 20,CDMX,14906,Ciudad,Centro,Calle 88,295.99,9,6:16,3:50,ABC-230,2,No,OK

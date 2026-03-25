@@ -1,0 +1,91 @@
+Folio del reporte;Numero de remisión;Numero de operador;Nombre del operador;Fecha de reporte;Descripción;O.C.;Origen-Destino;Cliente;Origen;CP;Ciudad;Colonia;Calle;Consumo diésel;Casetas;Hora salida;Hora llegada;Placas;Remolques;Dollies;Check
+FR-0;;39;;fecha_mal;;OC_ERR;;Cliente 17;CDMX;91066;Ciudad;Centro;Calle 95;NaN;8;1:32;22:17;ABC-198;1;Sí;OK
+FR-1;9470.0;27;;fecha_mal;Entrega;OC_ERR;;;CDMX;CP_ERR;Ciudad;Centro;Calle 50;NaN;6;14:03;0:43;ABC-340;1;Sí;
+FR-2;2080.0;41;;21/05/2025;;83599;;;CDMX;CP_ERR;Ciudad;Centro;Calle 96;NaN;6;13:55;16:46;ABC-177;1;No;Botón pánico
+FR-3;;17;Operador 35;2025-10-27;Entrega;66325;;;CDMX;33189;Ciudad;Centro;Calle 68;279.68;3;1:45;19:12;ABC-516;1;No;Botón pánico
+FR-4;;23;;fecha_mal;;77288;CDMX-Veracruz;;CDMX;35343;Ciudad;Centro;Calle 91;225.63;5;3:25;4:03;ABC-951;3;No;Botón pánico
+FR-5;;ERROR;Operador 16;2025-11-07;Entrega;17146;;Cliente 8;CDMX;CP_ERR;Ciudad;Centro;Calle 34;NaN;1;2:32;12:13;ABC-288;1;No;Botón pánico
+FR-6;;ERROR;Operador 8;fecha_mal;Recolección;OC_ERR;;;CDMX;CP_ERR;Ciudad;Centro;Calle 90;258.33;4;2:32;20:09;ABC-777;1;Sí;Botón pánico
+FR-7;8582.0;1;;2025-12-13;Entrega;80262;CDMX-Veracruz;;CDMX;CP_ERR;Ciudad;Centro;Calle 16;258.69;3;18:37;15:51;ABC-635;3;No;Cambio ruta
+FR-8;5419.0;16;Operador 37;fecha_mal;;OC_ERR;CDMX-Veracruz;;CDMX;CP_ERR;Ciudad;Centro;Calle 92;153.97;4;11:42;3:54;ABC-507;1;No;
+FR-9;8292.0;ERROR;Operador 28;fecha_mal;Entrega;OC_ERR;;;CDMX;CP_ERR;Ciudad;Centro;Calle 14;142.67;7;3:21;11:44;ABC-754;2;No;Botón pánico
+FR-10;7313.0;ERROR;;fecha_mal;Recolección;OC_ERR;CDMX-Veracruz;Cliente 6;CDMX;CP_ERR;Ciudad;Centro;Calle 58;NaN;1;13:34;11:09;ABC-521;1;Sí;
+FR-11;;5;;fecha_mal;Entrega;55593;;;CDMX;CP_ERR;Ciudad;Centro;Calle 12;NaN;4;14:03;20:24;ABC-416;2;No;Botón pánico
+FR-12;1718.0;29;;17/03/2026;Recolección;OC_ERR;CDMX-Veracruz;;CDMX;24868;Ciudad;Centro;Calle 96;NaN;8;5:45;2:59;ABC-280;3;Sí;OK
+FR-13;3289.0;ERROR;Operador 34;2025-07-06;Recolección;75112;;;CDMX;CP_ERR;Ciudad;Centro;Calle 3;NaN;10;7:10;0:19;ABC-579;3;No;Botón pánico
+FR-14;3451.0;25;Operador 15;2025-08-16;Recolección;74695;;;CDMX;CP_ERR;Ciudad;Centro;Calle 98;281.45;10;3:30;10:14;ABC-637;1;No;
+FR-15;;ERROR;Operador 9;16/03/2026;;24229;;Cliente 10;CDMX;88970;Ciudad;Centro;Calle 76;145.75;7;21:57;4:07;ABC-876;1;No;Cambio ruta
+FR-16;;23;;2025-06-04;;22478;CDMX-Veracruz;;CDMX;CP_ERR;Ciudad;Centro;Calle 19;NaN;4;2:49;5:45;ABC-331;2;No;
+FR-17;7107.0;20;;fecha_mal;Recolección;32244;CDMX-Veracruz;;CDMX;40215;Ciudad;Centro;Calle 34;NaN;5;1:25;8:28;ABC-625;2;No;
+FR-18;8885.0;8;Operador 18;07/09/2025;Entrega;OC_ERR;;;CDMX;28803;Ciudad;Centro;Calle 46;212.46;5;21:12;9:49;ABC-471;3;Sí;OK
+FR-19;7220.0;43;Operador 8;fecha_mal;;59819;CDMX-Veracruz;;CDMX;CP_ERR;Ciudad;Centro;Calle 71;NaN;5;3:49;18:10;ABC-690;1;Sí;Cambio ruta
+FR-20;;22;;2025-07-06;Entrega;OC_ERR;;Cliente 16;CDMX;59613;Ciudad;Centro;Calle 86;NaN;3;18:54;10:32;ABC-898;3;Sí;Botón pánico
+FR-21;;ERROR;Operador 10;fecha_mal;Recolección;91042;CDMX-Veracruz;Cliente 5;CDMX;CP_ERR;Ciudad;Centro;Calle 8;NaN;6;8:00;21:16;ABC-872;3;Sí;OK
+FR-22;4686.0;ERROR;;fecha_mal;Entrega;OC_ERR;;;CDMX;CP_ERR;Ciudad;Centro;Calle 68;NaN;1;19:48;16:41;ABC-746;1;Sí;OK
+FR-23;;17;;14/08/2025;;43739;CDMX-Veracruz;Cliente 6;CDMX;97777;Ciudad;Centro;Calle 50;NaN;2;18:52;21:42;ABC-179;1;No;OK
+FR-24;;34;;2025-08-07;Recolección;86066;;;CDMX;55654;Ciudad;Centro;Calle 24;NaN;4;17:02;21:48;ABC-555;2;No;
+FR-25;;23;Operador 35;04/08/2025;;OC_ERR;;Cliente 13;CDMX;CP_ERR;Ciudad;Centro;Calle 12;297.42;3;2:07;1:25;ABC-202;2;Sí;Cambio ruta
+FR-26;6517.0;4;;2025-08-05;Entrega;OC_ERR;CDMX-Veracruz;;CDMX;48896;Ciudad;Centro;Calle 11;NaN;6;19:19;22:54;ABC-127;3;No;
+FR-27;;12;Operador 29;2025-07-30;Entrega;OC_ERR;;;CDMX;CP_ERR;Ciudad;Centro;Calle 8;216.75;9;16:44;15:44;ABC-875;1;No;Botón pánico
+FR-28;9987.0;36;;2025-07-16;Recolección;38071;;Cliente 1;CDMX;CP_ERR;Ciudad;Centro;Calle 81;NaN;10;17:55;11:12;ABC-384;1;Sí;Botón pánico
+FR-29;;50;Operador 10;fecha_mal;Entrega;OC_ERR;CDMX-Veracruz;Cliente 16;CDMX;CP_ERR;Ciudad;Centro;Calle 24;57.35;8;6:32;3:04;ABC-669;2;No;Botón pánico
+FR-30;2464.0;ERROR;;fecha_mal;Recolección;99787;CDMX-Veracruz;;CDMX;91346;Ciudad;Centro;Calle 67;NaN;6;20:59;2:12;ABC-470;2;No;Botón pánico
+FR-31;;ERROR;Operador 47;28/06/2025;Recolección;OC_ERR;;;CDMX;CP_ERR;Ciudad;Centro;Calle 53;NaN;2;2:03;12:41;ABC-162;3;Sí;OK
+FR-32;;ERROR;Operador 24;fecha_mal;Entrega;OC_ERR;;Cliente 7;CDMX;CP_ERR;Ciudad;Centro;Calle 53;193.74;8;1:25;9:54;ABC-305;3;No;OK
+FR-33;3653.0;ERROR;Operador 7;fecha_mal;;13818;;Cliente 4;CDMX;CP_ERR;Ciudad;Centro;Calle 10;96.88;5;14:01;2:28;ABC-252;3;No;Botón pánico
+FR-34;;28;Operador 14;06/08/2025;Entrega;51904;CDMX-Veracruz;;CDMX;67543;Ciudad;Centro;Calle 31;284.17;3;12:23;16:16;ABC-755;3;Sí;Botón pánico
+FR-35;2432.0;45;;2025-12-12;;OC_ERR;CDMX-Veracruz;;CDMX;99693;Ciudad;Centro;Calle 79;NaN;6;9:17;6:55;ABC-666;2;Sí;Cambio ruta
+FR-36;6285.0;ERROR;;06/08/2025;Entrega;OC_ERR;;;CDMX;65299;Ciudad;Centro;Calle 73;109.85;9;6:31;5:16;ABC-448;1;Sí;
+FR-37;9946.0;28;Operador 4;27/07/2025;;57654;CDMX-Veracruz;Cliente 3;CDMX;CP_ERR;Ciudad;Centro;Calle 70;118.8;9;8:01;22:30;ABC-218;2;Sí;Cambio ruta
+FR-38;1471.0;ERROR;;13/12/2025;Recolección;48123;CDMX-Veracruz;Cliente 13;CDMX;65633;Ciudad;Centro;Calle 71;272.76;5;3:08;21:45;ABC-937;2;Sí;Botón pánico
+FR-39;;ERROR;;2025-11-15;Recolección;OC_ERR;CDMX-Veracruz;;CDMX;CP_ERR;Ciudad;Centro;Calle 64;216.17;1;13:26;22:55;ABC-957;3;Sí;Botón pánico
+FR-40;9381.0;ERROR;Operador 16;09/11/2025;Entrega;90319;;;CDMX;77287;Ciudad;Centro;Calle 82;NaN;3;19:00;20:02;ABC-873;1;No;Botón pánico
+FR-41;;ERROR;;fecha_mal;;78278;CDMX-Veracruz;Cliente 4;CDMX;CP_ERR;Ciudad;Centro;Calle 77;NaN;3;8:11;12:29;ABC-525;2;Sí;
+FR-42;;ERROR;Operador 17;10/02/2026;Recolección;OC_ERR;;;CDMX;93789;Ciudad;Centro;Calle 28;140.04;3;5:15;21:35;ABC-612;2;No;OK
+FR-43;2900.0;ERROR;;2025-10-31;;65784;;;CDMX;18465;Ciudad;Centro;Calle 86;144.55;10;6:00;2:11;ABC-770;1;Sí;OK
+FR-44;;43;Operador 4;25/04/2025;Recolección;OC_ERR;CDMX-Veracruz;;CDMX;CP_ERR;Ciudad;Centro;Calle 29;89.87;10;20:42;3:14;ABC-236;2;Sí;Cambio ruta
+FR-45;;ERROR;;fecha_mal;;OC_ERR;;Cliente 8;CDMX;70712;Ciudad;Centro;Calle 35;256.78;3;13:06;20:15;ABC-915;1;No;OK
+FR-46;;13;;fecha_mal;;OC_ERR;CDMX-Veracruz;Cliente 20;CDMX;CP_ERR;Ciudad;Centro;Calle 13;191.34;10;5:21;5:49;ABC-827;1;No;
+FR-47;;ERROR;Operador 46;2025-05-16;Entrega;70983;CDMX-Veracruz;;CDMX;CP_ERR;Ciudad;Centro;Calle 94;NaN;4;23:20;9:15;ABC-571;2;Sí;
+FR-48;7974.0;ERROR;;fecha_mal;Entrega;24539;CDMX-Veracruz;Cliente 2;CDMX;56450;Ciudad;Centro;Calle 36;NaN;8;5:38;6:55;ABC-384;2;Sí;Cambio ruta
+FR-49;;ERROR;;13/09/2025;Recolección;OC_ERR;;Cliente 18;CDMX;46699;Ciudad;Centro;Calle 67;NaN;2;7:43;0:06;ABC-751;3;No;Botón pánico
+FR-50;5247.0;ERROR;Operador 48;2025-09-18;Recolección;34396;CDMX-Veracruz;;CDMX;CP_ERR;Ciudad;Centro;Calle 80;NaN;8;17:57;5:32;ABC-779;2;No;Botón pánico
+FR-51;;ERROR;Operador 43;fecha_mal;Recolección;OC_ERR;CDMX-Veracruz;;CDMX;CP_ERR;Ciudad;Centro;Calle 41;131.86;5;2:20;18:14;ABC-457;1;No;Cambio ruta
+FR-52;;4;;13/06/2025;Recolección;85452;CDMX-Veracruz;;CDMX;CP_ERR;Ciudad;Centro;Calle 15;171.78;9;10:18;14:44;ABC-546;1;Sí;Cambio ruta
+FR-53;3969.0;14;;fecha_mal;Recolección;OC_ERR;;;CDMX;43676;Ciudad;Centro;Calle 22;NaN;4;17:37;8:40;ABC-185;1;No;OK
+FR-54;;ERROR;;2026-03-03;;OC_ERR;CDMX-Veracruz;Cliente 5;CDMX;CP_ERR;Ciudad;Centro;Calle 39;114.52;3;20:58;3:20;ABC-834;2;No;Botón pánico
+FR-55;;ERROR;Operador 46;fecha_mal;Entrega;66979;CDMX-Veracruz;Cliente 11;CDMX;64439;Ciudad;Centro;Calle 37;83.59;7;1:14;14:22;ABC-191;1;Sí;Botón pánico
+FR-56;5947.0;44;;13/03/2026;Recolección;84320;;Cliente 9;CDMX;CP_ERR;Ciudad;Centro;Calle 92;271.34;6;5:28;3:44;ABC-794;2;Sí;OK
+FR-57;;1;;fecha_mal;Recolección;OC_ERR;CDMX-Veracruz;Cliente 6;CDMX;13823;Ciudad;Centro;Calle 29;193.04;7;2:42;15:17;ABC-614;2;Sí;
+FR-58;;9;Operador 14;fecha_mal;Entrega;OC_ERR;CDMX-Veracruz;;CDMX;29086;Ciudad;Centro;Calle 18;NaN;2;23:28;22:34;ABC-383;2;Sí;Cambio ruta
+FR-59;8511.0;ERROR;;fecha_mal;;36238;CDMX-Veracruz;;CDMX;CP_ERR;Ciudad;Centro;Calle 20;NaN;1;23:58;15:00;ABC-697;2;No;Botón pánico
+FR-60;5937.0;28;Operador 10;22/09/2025;Entrega;OC_ERR;CDMX-Veracruz;;CDMX;77052;Ciudad;Centro;Calle 50;62.42;4;23:51;19:57;ABC-275;2;No;Cambio ruta
+FR-61;4449.0;ERROR;Operador 7;2026-01-28;Recolección;OC_ERR;CDMX-Veracruz;;CDMX;CP_ERR;Ciudad;Centro;Calle 96;226.27;1;23:56;18:48;ABC-278;2;Sí;Botón pánico
+FR-62;4308.0;ERROR;;2026-02-21;Recolección;OC_ERR;;;CDMX;24421;Ciudad;Centro;Calle 55;NaN;4;23:31;1:22;ABC-211;1;No;Cambio ruta
+FR-63;;ERROR;;2025-12-07;Entrega;95525;;;CDMX;46580;Ciudad;Centro;Calle 50;NaN;8;6:35;14:40;ABC-837;2;No;Botón pánico
+FR-64;6263.0;ERROR;Operador 20;2025-06-12;;47425;CDMX-Veracruz;Cliente 2;CDMX;CP_ERR;Ciudad;Centro;Calle 12;NaN;8;17:20;23:30;ABC-509;1;No;Cambio ruta
+FR-65;;ERROR;Operador 9;2025-12-03;Recolección;OC_ERR;CDMX-Veracruz;Cliente 11;CDMX;CP_ERR;Ciudad;Centro;Calle 11;92.55;8;21:45;15:18;ABC-648;1;Sí;Botón pánico
+FR-66;5383.0;ERROR;Operador 22;06/05/2025;;OC_ERR;CDMX-Veracruz;Cliente 13;CDMX;CP_ERR;Ciudad;Centro;Calle 58;121.03;10;15:32;23:34;ABC-583;1;No;Botón pánico
+FR-67;5434.0;41;Operador 50;2026-03-24;Recolección;OC_ERR;;;CDMX;79520;Ciudad;Centro;Calle 7;NaN;7;10:46;16:44;ABC-342;2;Sí;
+FR-68;;ERROR;Operador 35;fecha_mal;Entrega;87424;;Cliente 8;CDMX;69598;Ciudad;Centro;Calle 72;NaN;1;15:03;13:40;ABC-918;2;No;
+FR-69;;14;Operador 49;23/03/2026;Recolección;35076;;;CDMX;CP_ERR;Ciudad;Centro;Calle 72;NaN;8;16:46;17:32;ABC-270;1;No;Botón pánico
+FR-70;;ERROR;Operador 47;2025-03-31;Recolección;OC_ERR;CDMX-Veracruz;;CDMX;24274;Ciudad;Centro;Calle 52;249.63;10;5:47;2:13;ABC-177;2;No;
+FR-71;9290.0;ERROR;;05/09/2025;;OC_ERR;;Cliente 20;CDMX;75521;Ciudad;Centro;Calle 75;67.0;9;11:38;1:03;ABC-167;3;No;OK
+FR-72;;32;;07/04/2025;Recolección;OC_ERR;;Cliente 10;CDMX;61208;Ciudad;Centro;Calle 16;280.86;8;2:50;23:13;ABC-609;2;No;OK
+FR-73;6199.0;27;;2025-05-12;Entrega;65149;CDMX-Veracruz;Cliente 1;CDMX;63478;Ciudad;Centro;Calle 61;NaN;2;20:11;13:47;ABC-336;3;No;Botón pánico
+FR-74;;ERROR;Operador 40;2025-07-18;Recolección;OC_ERR;;;CDMX;38120;Ciudad;Centro;Calle 49;NaN;9;19:53;0:36;ABC-804;1;Sí;Cambio ruta
+FR-75;3891.0;ERROR;Operador 8;fecha_mal;Entrega;34838;;Cliente 4;CDMX;36143;Ciudad;Centro;Calle 50;NaN;9;12:59;8:54;ABC-779;3;No;Botón pánico
+FR-76;;10;;fecha_mal;Recolección;35013;;;CDMX;23055;Ciudad;Centro;Calle 99;53.7;6;2:39;21:57;ABC-333;3;Sí;Botón pánico
+FR-77;2435.0;6;;fecha_mal;Recolección;OC_ERR;CDMX-Veracruz;;CDMX;43928;Ciudad;Centro;Calle 65;NaN;7;15:08;17:47;ABC-687;1;Sí;
+FR-78;8155.0;38;Operador 9;fecha_mal;Recolección;80961;;;CDMX;CP_ERR;Ciudad;Centro;Calle 49;NaN;6;16:47;9:03;ABC-420;1;Sí;Cambio ruta
+FR-79;4445.0;ERROR;Operador 29;fecha_mal;;92235;CDMX-Veracruz;Cliente 20;CDMX;CP_ERR;Ciudad;Centro;Calle 4;125.31;5;12:54;8:10;ABC-130;1;Sí;
+FR-0;;39;;fecha_mal;;OC_ERR;;Cliente 17;CDMX;91066;Ciudad;Centro;Calle 95;NaN;8;1:32;22:17;ABC-198;1;Sí;OK
+FR-1;9470.0;27;;fecha_mal;Entrega;OC_ERR;;;CDMX;CP_ERR;Ciudad;Centro;Calle 50;NaN;6;14:03;0:43;ABC-340;1;Sí;
+FR-2;2080.0;41;;21/05/2025;;83599;;;CDMX;CP_ERR;Ciudad;Centro;Calle 96;NaN;6;13:55;16:46;ABC-177;1;No;Botón pánico
+FR-3;;17;Operador 35;2025-10-27;Entrega;66325;;;CDMX;33189;Ciudad;Centro;Calle 68;279.68;3;1:45;19:12;ABC-516;1;No;Botón pánico
+FR-4;;23;;fecha_mal;;77288;CDMX-Veracruz;;CDMX;35343;Ciudad;Centro;Calle 91;225.63;5;3:25;4:03;ABC-951;3;No;Botón pánico
+FR-5;;ERROR;Operador 16;2025-11-07;Entrega;17146;;Cliente 8;CDMX;CP_ERR;Ciudad;Centro;Calle 34;NaN;1;2:32;12:13;ABC-288;1;No;Botón pánico
+FR-6;;ERROR;Operador 8;fecha_mal;Recolección;OC_ERR;;;CDMX;CP_ERR;Ciudad;Centro;Calle 90;258.33;4;2:32;20:09;ABC-777;1;Sí;Botón pánico
+FR-7;8582.0;1;;2025-12-13;Entrega;80262;CDMX-Veracruz;;CDMX;CP_ERR;Ciudad;Centro;Calle 16;258.69;3;18:37;15:51;ABC-635;3;No;Cambio ruta
+FR-8;5419.0;16;Operador 37;fecha_mal;;OC_ERR;CDMX-Veracruz;;CDMX;CP_ERR;Ciudad;Centro;Calle 92;153.97;4;11:42;3:54;ABC-507;1;No;
+FR-9;8292.0;ERROR;Operador 28;fecha_mal;Entrega;OC_ERR;;;CDMX;CP_ERR;Ciudad;Centro;Calle 14;142.67;7;3:21;11:44;ABC-754;2;No;Botón pánico
