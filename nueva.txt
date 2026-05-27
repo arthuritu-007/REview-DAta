@@ -1,0 +1,377 @@
+
+
+Contexto:
+Review Data es una app web para análisis y validación de datasets de transporte. Actualmente permite cargar CSV, ejecutar reglas de validación, ver hallazgos, recomendaciones, estadísticas, historial de datasets y reportes PDF.
+
+Objetivo:
+Agregar funciones AI-powered sin entrenar un modelo propio. La IA debe trabajar usando:
+- metadata del dataset
+- profiling del CSV
+- resultados de validación
+- hallazgos
+- severidades
+- historial de ejecuciones
+- reglas existentes
+
+NO quiero rehacer la app. Quiero agregar una capa inteligente encima del sistema actual.
+
+FUNCIONES A IMPLEMENTAR
+
+1. AI Insights
+
+Crear un módulo que genere insights automáticos después de cada validación.
+
+Debe analizar:
+- total de inconsistencias
+- errores por columna
+- errores por severidad
+- reglas más fallidas
+- columnas más problemáticas
+- cambios contra runs anteriores
+
+Ejemplo de salida:
+- “El 72% de los errores provienen de campos de ubicación.”
+- “La calidad del dataset bajó 18 puntos respecto al último run.”
+- “Los errores críticos están concentrados en Boton_panico y Cambio_ruta.”
+
+Debe guardarse en una tabla ai_insights con:
+- id
+- run_id
+- type
+- title
+- description
+- severity
+- created_at
+
+2. Smart Recommendations
+
+Mejorar el módulo de recomendaciones para que no sean genéricas.
+
+Cada recomendación debe tener:
+- problema detectado
+- explicación
+- acción sugerida
+- prioridad
+- impacto esperado
+- si puede automatizarse o no
+
+Ejemplo:
+Problema: códigos postales inválidos.
+Recomendación: aplicar validación regex ^\d{5}$ y crear catálogo de códigos por ciudad.
+Impacto: mejora consistencia geográfica y reportes de rutas.
+
+Tabla sugerida:
+ai_recommendations:
+- id
+- run_id
+- rule_id
+- column_name
+- problem
+- recommendation
+- priority
+- business_impact
+- can_auto_fix
+- created_at
+
+3. Drift Detection
+
+Agregar comparación entre ejecuciones del mismo tipo de dataset.
+
+Detectar:
+- cambio en cantidad de filas
+- cambio en cantidad de columnas
+- columnas nuevas o faltantes
+- aumento de errores
+- caída del score
+- cambio en distribución de valores
+- cambio en valores únicos
+- cambio en porcentaje de nulos
+
+Ejemplo:
+- “La columna Fecha_reporte aumentó 45% en errores.”
+- “El dataset tiene 3 columnas menos que la última carga.”
+- “El score cayó de 92 a 60.”
+
+Crear tabla:
+dataset_drift:
+- id
+- dataset_id
+- current_run_id
+- previous_run_id
+- drift_type
+- field
+- previous_value
+- current_value
+- difference
+- severity
+- explanation
+- created_at
+
+4. Natural Language Queries
+
+Agregar un mini chat o buscador inteligente donde el usuario pueda preguntar cosas del dataset.
+
+Ejemplos:
+- “¿Cuál es el principal problema del dataset?”
+- “Muéstrame los errores críticos.”
+- “¿Qué columna tiene más fallas?”
+- “¿Qué debo corregir primero?”
+- “Resume este run.”
+
+Primera versión:
+No conectar directo a SQL libre.
+Crear un intent parser simple.
+
+Intents:
+- summary_run
+- critical_findings
+- top_columns
+- recommendations
+- score_explanation
+- compare_runs
+
+La app debe responder usando datos ya calculados, no inventar.
+
+5. Auto-generated Expectations
+
+Después de cargar un dataset, sugerir reglas automáticamente.
+
+Basarse en:
+- nombres de columnas
+- tipos detectados
+- valores más comunes
+- patrones regex
+- porcentaje de valores únicos
+- valores mínimo/máximo
+- ejemplos válidos
+
+Ejemplos:
+- Si una columna se llama Fecha_reporte, sugerir formato fecha.
+- Si una columna tiene valores Si/No, sugerir catálogo permitido.
+- Si una columna parece código postal, sugerir regex ^\d{5}$.
+- Si una columna parece placas, sugerir regex ^[A-Z]{3}-\d{3}$.
+- Si una columna tiene valores únicos en casi todas las filas, sugerir regla UNIQUE.
+
+Tabla:
+suggested_expectations:
+- id
+- dataset_id
+- column_name
+- expectation_type
+- parameters_json
+- confidence
+- reason
+- status
+- created_at
+
+Estados:
+- suggested
+- accepted
+- rejected
+- active
+
+6. Auto-fixes
+
+Agregar acciones automáticas para errores simples.
+
+Auto-fixes permitidos:
+- trim espacios
+- normalizar mayúsculas/minúsculas
+- convertir “si”, “SI”, “sí” a “Si”
+- convertir “no”, “NO” a “No”
+- normalizar fechas si el formato es reconocible
+- eliminar caracteres invisibles
+- convertir números en texto a números cuando sea seguro
+- limpiar dobles espacios
+
+NO corregir automáticamente:
+- placas inventadas
+- códigos postales desconocidos
+- nombres de operador dudosos
+- datos críticos como Boton_panico
+- valores que requieran decisión humana
+
+Crear tabla:
+auto_fix_suggestions:
+- id
+- run_id
+- finding_id
+- column_name
+- original_value
+- fixed_value
+- fix_type
+- confidence
+- requires_approval
+- status
+- created_at
+
+Estados:
+- suggested
+- applied
+- rejected
+
+7. Dataset Health Score
+
+Mejorar el score actual.
+
+Fórmula sugerida:
+score = 100 - penalties
+
+Penalizaciones:
+- crítica: 10 puntos
+- alta: 5 puntos
+- media: 2 puntos
+- baja: 1 punto
+
+Pero debe normalizarse por número de filas para evitar que datasets grandes se castiguen injustamente.
+
+Score final debe considerar:
+- severidad
+- porcentaje de filas afectadas
+- reglas críticas fallidas
+- drift
+- freshness
+- duplicados
+- campos obligatorios
+
+Guardar:
+dataset_health:
+- id
+- run_id
+- score
+- grade
+- explanation
+- critical_count
+- high_count
+- medium_count
+- low_count
+- created_at
+
+Grades:
+- 90-100 Excelente
+- 75-89 Bueno
+- 60-74 Riesgo
+- 0-59 Crítico
+
+8. Business Impact Analysis
+
+Cada hallazgo debe explicar el impacto para transporte.
+
+Ejemplos:
+- Boton_panico inválido: puede ocultar una emergencia operativa.
+- Hora_salida_base inválida: afecta cálculo de tiempos de entrega.
+- CP inválido: afecta análisis geográfico y planeación de rutas.
+- Placas inválidas: afecta trazabilidad de unidades.
+- Cambio_ruta inválido: afecta control operativo y auditoría.
+- Consumo_estimado_diesel inválido: afecta costos y eficiencia.
+
+Agregar campo business_impact en hallazgos y recomendaciones.
+
+REGLA IMPORTANTE:
+La IA no debe inventar datos. Solo debe explicar, resumir y recomendar con base en los resultados reales de la validación.
+
+UI NUEVA A AGREGAR
+
+1. En Inicio:
+Agregar panel “AI Insights”
+Agregar gauge “Data Health Score”
+Agregar alerta “Top Risk”
+Agregar tendencia contra último run
+
+2. En Cargar Dataset:
+Agregar “AI Profiling”
+Mostrar columnas detectadas
+Mostrar expectativas sugeridas
+Botón “Aceptar reglas sugeridas”
+
+3. En Ejecutar Validación:
+Agregar progreso por fases:
+- Schema check
+- Contract validation
+- Business rules
+- Drift analysis
+- AI insights
+- Report generation
+
+4. En Hallazgos:
+Agrupar errores repetidos
+Agregar business impact
+Agregar botón “ver explicación IA”
+Agregar botón “crear regla desde hallazgo”
+
+5. En Recomendaciones:
+Dividir en:
+- Prioridad crítica
+- Correcciones rápidas
+- Reglas sugeridas
+- Mejoras de negocio
+
+6. En Estadísticas:
+Agregar:
+- score histórico
+- drift histórico
+- columnas más problemáticas
+- distribución de severidad
+- porcentaje de registros válidos
+
+7. En Reportes:
+Agregar resumen ejecutivo generado por IA:
+- qué pasó
+- qué tan grave es
+- qué corregir primero
+- impacto operativo
+- siguientes pasos
+
+IMPLEMENTACIÓN RECOMENDADA
+
+Primera fase:
+Hacerlo con reglas inteligentes y estadísticas, sin modelo AI complejo.
+
+Segunda fase:
+Conectar un LLM API para generar explicaciones más naturales usando JSON del run.
+
+El backend debe construir un resumen estructurado del run como JSON y pasarlo a la capa AI.
+
+Ejemplo JSON:
+{
+  "run_id": "53534f7b",
+  "dataset": "upload_9ve_5dls.csv",
+  "rows": 20,
+  "score": 60,
+  "severity_counts": {
+    "critical": 140,
+    "high": 514,
+    "medium": 604,
+    "low": 0
+  },
+  "top_columns": [
+    {"column": "Remitente_origen", "errors": 20},
+    {"column": "Fecha_reporte", "errors": 15}
+  ],
+  "top_rules": [
+    {"rule": "contrato_csv_viajes", "fails": 160}
+  ]
+}
+
+La respuesta AI debe regresar JSON, no texto libre:
+
+{
+  "insights": [],
+  "recommendations": [],
+  "business_impacts": [],
+  "auto_fixes": [],
+  "drift": []
+}
+
+Prioridad de desarrollo:
+1. Dataset Health Score
+2. AI Insights
+3. Smart Recommendations
+4. Business Impact Analysis
+5. Auto-generated Expectations
+6. Drift Detection
+7. Auto-fixes
+8. Natural Language Queries
+
+Resultado esperado:
+La app debe sentirse como una plataforma profesional de Data Quality y Data Observability para transporte, inspirada en Great Expectations, pero más visual, más simple y más enfocada en negocio.

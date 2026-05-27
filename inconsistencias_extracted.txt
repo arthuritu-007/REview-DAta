@@ -1,0 +1,825 @@
+Sistema de detección de inconsistencias: Review Data 
+ 
+Jared Fernández González 
+César Arturo González Hernández 
+Axel Olmedo Blanco 
+Israel Romero Vázquez 
+Diego Noe Roldan Vivanco 
+Karel Salas Sánchez 
+Ian Sánchez Flores 
+ 
+ 
+Facultad de Negocios y Tecnología, Universidad Veracruzana 
+ 
+ 
+Base de Datos para el Desarrollo de Software 
+ 
+ 
+Mtro. Jorge Ernesto González Diaz   
+ 
+ 
+18 de febrero de 2025 
+Contenido 
+Planteamiento del Problema ................................ ................................ ..........................  4 
+Objetivos del Sistema ................................ ................................ ................................ .... 5 
+Objetivo general ................................ ................................ ................................ ........ 5 
+Objetivos específicos ................................ ................................ ................................  5 
+Reglas de Negocio ................................ ................................ ................................ ........ 6 
+Reglas de validación ................................ ................................ ................................ ..... 8 
+Roles del sistema ................................ ................................ ................................ ........ 11 
+Jefe de operadores................................ ................................ ................................ ... 11 
+Formato de Reporte del viaje ................................ ................................ ....................... 12 
+Formato de reporte de hallazgos inconsistencias ................................ ..........................  13 
+Flujo de validación ................................ ................................ ................................ ...... 14 
+Tecnologías empleadas ................................ ................................ ...............................  15 
+Definición Integral de Requisitos del Sistema DevSolve ................................ ................. 16 
+Requisitos Funcionales ................................ ................................ ........................ 16 
+Requisitos NO Funcionales ................................ ................................ ................... 19 
+Especificación Funcional de los Módulos del Sistema Review Data ................................  20 
+Módulo de Carga de Datos ................................ ................................ ....................... 20 
+Módulo de Validación ................................ ................................ ..............................  20 
+Módulo de Reporte de Hallazgos ................................ ................................ .............. 21 
+Módulo de Recomendaciones ................................ ................................ .................. 22 
+Módulo de Reporte de Gráficas (Mensual) ................................ ................................ . 22 
+Diagrama Relacional de la Base de Datos ................................ ................................ ..... 25 
+Diseño del Sistema ................................ ................................ ................................ ..... 26 
+Ventana Login ................................ ................................ ................................ ......... 26 
+Ventana principal ................................ ................................ ................................ .... 27 
+Ventana Dataset ................................ ................................ ................................ ...... 28 
+Ventana Validación ................................ ................................ ................................ .. 29 
+Ventana Hallazgos ................................ ................................ ................................ ... 31 
+Ventana recomendaciones ................................ ................................ ...................... 32 
+Ventanas estadísticas ................................ ................................ ..............................  33 
+Formato del reporte de viaje ................................ ................................ ..................... 34 
+Formato del reporte de hallazgos ................................ ................................ .............. 35 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Planteamiento del Problema 
+En la actualidad, las organizaciones dependen en gran medida de la información 
+almacenada en sus bases de datos para la toma de decisiones estratégicas y operativas. Sin 
+embargo, uno de los principales desafíos que enfrentan es la presencia de inconsistencias 
+en los datos, tales como registros duplicados, campos obligatorios nulos, valores fuera de 
+rango, formatos incorrectos y errores derivados de la captura manual de información. 
+Estas inconsistencias afectan directamente la calidad, integridad y confiabilidad de los 
+datos, lo que puede generar reportes inexactos, análisis erróneos y decisiones mal 
+fundamentadas. Además, en muchos casos no existen mecanismos automatizados que 
+permitan validar reglas de negocio de forma continua, lo que incrementa el riesgo de que 
+los errores pasen desapercibidos. 
+Otro problema relevante es la falta de herramientas centralizadas que permitan no solo 
+detectar las inconsistencias, sino también registrarlas, clasificarlas por nivel de severidad, 
+generar estadísticas y proponer acciones correctivas. La revisión manual d e grandes 
+volúmenes de datos resulta ineficiente, consume tiempo y aumenta la probabilidad de 
+omisiones. 
+Ante esta situación, surge la necesidad de desarrollar un sistema automatizado basado en 
+bases de datos que permita detectar, registrar y gestionar inconsistencias, aplicando reglas 
+de validación configurables, generando reportes detallados y proporcionand o estadísticas 
+y alertas que faciliten el monitoreo continuo de la calidad de los datos. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Objetivos del Sistema 
+Objetivo general 
+Desarrollar un sistema automatizado basado en bases de datos que permita detectar, 
+registrar y gestionar inconsistencias en los datos de una organización, garantizando la 
+integridad, confiabilidad y calidad de la información mediante la aplicación de regla s de 
+validación configurables y la generación de reportes, estadísticas y alertas. 
+ 
+Objetivos específicos 
+• Diseñar una base de datos estructurada que permita almacenar datasets, reglas de 
+validación, ejecuciones, hallazgos, estadísticas y recomendaciones. 
+ 
+• Implementar un módulo de carga de datasets que permita importar archivos en 
+formato JSON y CSV , validando su estructura antes de ser procesados. 
+ 
+• Desarrollar un módulo validaeción que ejecute reglas de validación sobre los datos 
+almacenados y registre cada proceso de análisis. 
+ 
+• Crear un sistema de detección de inconsistencias capaz de identificar registros 
+duplicados, campos obligatorios nulos, valores fuera de rango y formatos 
+incorrectos. 
+ 
+• Generar reportes detallados de las inconsistencias encontradas, permitiendo 
+filtrado por dataset, fecha y tipo de error, con opción de exportación en PDF . 
+ 
+• Incorporar un módulo de recomendaciones que sugiera acciones correctivas y 
+preventivas asociadas a cada tipo de inconsistencia detectada. 
+ 
+ 
+ 
+ 
+Reglas de Negocio 
+Las reglas de negocio son condiciones, criterios o restricciones que definen cómo deben 
+comportarse los datos dentro de un sistema para cumplir con los estándares y políticas de 
+una organización. Estas reglas establecen qué información es válida, qué forma tos son 
+aceptables y qué valores están permitidos dentro de la base de datos. 
+Reglas relacionadas con Conductores 
+• RN-01. Todo conductor debe contar con licencia vigente registrada en el sistema. 
+• RN-02. El sistema deberá generar una alerta cuando la licencia del conductor esté 
+vencida o próxima a vencer (30 días antes). 
+• RN-03. No se podrá asignar un viaje a un conductor con estatus inactivo o 
+suspendido. 
+• RN-04. Si un conductor registra más de 3 incidencias en un periodo de 30 días, el 
+sistema generará una alerta de revisión. 
+Reglas relacionadas con Vehículos 
+• RN-05. Todo vehículo debe tener póliza de seguro vigente registrada en el sistema. 
+• RN-06. No se podrá asignar un viaje a un vehículo con estatus “en mantenimiento” . 
+• RN-07. El kilometraje registrado en cada viaje no podrá ser mayor al kilometraje 
+previo almacenado en el sistema. 
+• RN-08. Si el consumo de combustible reportado supera en un 20% el promedio 
+histórico del vehículo, el sistema deberá marcar una posible inconsistencia. 
+• RN-09 Se debe de tomar en cuenta los diferentes modelos de unidades y a su vez 
+clasificarlos de acuerdo a su rendimiento. 
+ 
+ Reglas relacionadas con Viajes 
+• RN-10. Todo viaje debe estar asociado a un conductor y a un vehículo previamente 
+registrados. 
+• RN-11. El sistema deberá generar una alerta cuando el tiempo real del viaje exceda 
+en más de 15% el tiempo estimado. 
+• RN-12. No se podrán registrar viajes con rutas no autorizadas por la empresa. 
+• RN-13. El sistema detectará inconsistencias cuando dos viajes se superpongan en 
+horario para el mismo conductor o vehículo. 
+ 
+  Reglas relacionadas con Carga y Mercancía 
+• RN-14. El peso de la carga no deberá exceder la capacidad máxima del vehículo 
+asignado. 
+• RN-15. Toda entrega debe registrar confirmación digital del cliente (firma o 
+evidencia). 
+• RN-16. Si existe diferencia entre el peso registrado en origen y destino menor al 5%, 
+el sistema generará una alerta. 
+ 
+ Reglas relacionadas con Pagos y Facturación 
+• RN-17. Todo viaje finalizado debe generar automáticamente un registro para 
+facturación. 
+• RN-18. No se podrá emitir factura si el viaje tiene inconsistencias sin resolver. 
+• RN-19. El monto facturado debe corresponder a la tarifa establecida según tipo de 
+carga y distancia. 
+ 
+ Reglas de Auditoría y Seguridad 
+• RN-20. Todo cambio en registros críticos (viajes, conductores, vehículos, 
+facturación) debe quedar almacenado en un historial de auditoría. 
+• RN-21. Solo usuarios con rol de administrador podrán modificar datos históricos. 
+• RN-22. Las inconsistencias detectadas deberán clasificarse por nivel de severidad 
+(baja, media, alta, crítica). 
+• RN-23. Las inconsistencias críticas deberán notificarse automáticamente al 
+supervisor operativo. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Reglas de validación 
+Se establece las bases formales que deberá seguir el programa para determinar cuándo un 
+documento logístico presenta inconsistencias. Las reglas aquí definidas permiten detectar 
+errores estructurales, lógicos y matemáticos. 
+SEVERIDAD ALTA (Nivel 1) 
+OBLIGATORIO 
+• No se permiten campos vacíos o nulos en campos obligatorios. 
+• Todo viaje deberá contar obligatoriamente con un conductor asignado. 
+• Debe existir Carta Porte asociada al viaje. 
+• No duplicidad por combinación cliente + fecha + dirección. 
+ 
+ FORMATO 
+• Número de empleado: longitud obligatoria de 12 o 13 caracteres. 
+• Las placas deberán cumplir con el formato oficial autorizado por la Secretaría de 
+Comunicaciones y Transportes (validación por expresión regular). 
+• Las fechas deberán registrarse en formato estándar DD-MM-YYYY . 
+• Validación de tipo de dato (numérico, texto, fecha). 
+• Validación de longitud de campos. 
+ 
+RANGO 
+• Peso total debe ser mayor a 0. 
+• Peso total no debe exceder la capacidad de la unidad. 
+• Peso estimado debe ser mayor a 0. 
+• Peso estimado no debe exceder la capacidad de la unidad. 
+• El peso de carga deberá encontrarse dentro del rango de 0 a 35 toneladas. 
+• Fecha de salida no puede ser futura. 
+ 
+LÓGICA  
+• Fecha de llegada no puede ser menor a fecha de salida. 
+• Fecha de entrega debe ser mayor o igual a fecha de salida. 
+• Origen no puede ser igual a destino. 
+• Cantidad entregada no puede exceder la cantidad enviada. 
+• Solo se permite operación en rutas autorizadas (si hay cambio deberá marcarse en 
+el check correspondiente). 
+ 
+SEVERIDAD MEDIA (Nivel 2) 
+• Validación de valores permitidos según catálogo. 
+ 
+SEVERIDAD BAJA (Nivel 3) 
+• Alertas por variaciones inusuales que no superen los límites críticos. 
+ 
+ 
+La operación de transporte en Transportes Bonampak inicia en el área de tráfico. En la 
+pizarra del analista se registra el tipo de camión disponible, los cuales pueden clasificarse 
+como: 
+• Sencillos 
+• Fuleros 
+Asimismo, se especifica el tipo de remolque que se utilizará en cada viaje, tales como: 
+• Caja seca 
+• Tolvas 
+• Pipas 
+• Góndolas 
+Una vez definida la unidad, el jefe de tráfico asigna en la lista al operador correspondiente 
+para realizar el viaje. 
+El área de tráfico recibe previamente del área comercial los requerimientos y necesidades 
+del cliente. Con base en esta información, se programan y asignan los viajes conforme a la 
+disponibilidad de unidades y operadores. 
+Para cada servicio se elabora un reporte de viaje que debe incluir la siguiente información: 
+• Ruta autorizada 
+• Consumo estimado de diésel para el trayecto y rendimiento del tractocamión 
+• Casetas de peaje por las que se debe transitar 
+• Prohibición de cambio de ruta, salvo autorización previa 
+• Número económico del tracto 
+• Placas del tracto 
+• Hora de llegada 
+• Hora de salida 
+• Tipo y número de remolques 
+• Dollies (en caso de utilizarse) 
+• Hora de cita con el cliente 
+Antes de la salida, el jefe de mantenimiento realiza una supervisión física de la unidad y 
+elabora una bitácora donde se registran las condiciones mecánicas y generales del camión, 
+asegurando que esté en óptimas condiciones para operar. 
+La información de los viajes se concentra en el sistema NOM201, el cual integra todos los 
+datos provenientes del sistema Liz. Ambos sistemas comparten la misma base de datos, 
+incluyendo el registro del número de empleados. 
+Dentro del proceso administrativo, el jefe de operadores tiene la responsabilidad de marcar 
+como concluidos todos los viajes una vez que estos finalizan. Sin embargo, también puede 
+visualizar aquellos viajes que permanecen inconclusos para su seguimiento. 
+En caso de que, por alguna circunstancia, el operador asignado no pueda realizar el viaje, 
+este se reasigna al siguiente operador disponible en la pizarra. En el reporte únicamente se 
+modifica el número de operador asignado y, adicionalmente, se notifica a l cliente sobre el 
+cambio. 
+Roles del sistema 
+Jefe de operadores 
+El jefe de operadores es el usuario encargado de la operación diaria del sistema. Su función 
+principal es cargar datasets, ejecutar procesos de validación y analizar los resultados 
+obtenidos. 
+Responsabilidades: 
+• Cargar archivos (CSV / JS). 
+• Ejecutar procesos de validación. 
+• Consultar hallazgos detectados. 
+• Generar y descargar reportes 
+• Visualizar estadísticas. 
+• Revisar recomendaciones asociadas a inconsistencias. 
+• Atender alertas generadas. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Formato de Reporte del viaje 
+Para cada servicio se elabora un reporte de viaje que debe incluir la siguiente información: 
+• Folio del reporte 
+• Numero de remisión  
+• Numero de operador 
+• Nombre del operador 
+• Fecha de reporte 
+• Descripción (Tipo de servicio) 
+• O.C. 
+• Origen-Destino 
+• Ruta autorizada 
+• Datos de remitentes y destinarios 
+o Cliente (Razón social) 
+o Origen 
+o CP 
+o Ciudad 
+o Colonia 
+o Calle 
+ 
+• Consumo estimado de diésel para el trayecto y rendimiento del tractocamión 
+• Casetas de peaje por las que se debe transitar 
+• Hora de salida de la base 
+• Hora aproximada de la llegada al destino 
+• Placas del tracto 
+• Tipo y numero de remolques 
+• Dollies (en caso de usarse) 
+• Check (irregularidades de viaje)  
+o Cambio de ruta 
+o Cambio de operador en caso de emergencia 
+o Botón de pánico 
+o Carga de gasolina 
+ 
+ 
+ 
+Formato de reporte de hallazgos inconsistencias 
+Para cada proceso de validación se genera un reporte de hallazgos que permite visualizar 
+las inconsistencias detectadas en los datasets analizados. Este reporte incluye la siguiente 
+información: 
+ 
+• Nombre del sistema 
+• Dataset analizado 
+• ID de ejecución de validación 
+• Fecha de ejecución 
+• Usuario que ejecutó la validación 
+• Total de registros analizados 
+• Total de inconsistencias detectadas 
+• Resumen de inconsistencias 
+o Inconsistencias críticas 
+o Inconsistencias altas 
+o Inconsistencias medias 
+o Inconsistencias bajas 
+• Detalle de hallazgos detectados 
+o ID del hallazgo 
+o Regla de validación infringida 
+o Campo afectado 
+o Valor detectado 
+o Descripción de la inconsistencia 
+o Nivel de severidad 
+o Fecha de detección 
+• Descripción detallada del hallazgo (cuando aplique) 
+o Identificador del hallazgo 
+o Descripción del error detectado 
+Flujo de validación 
+ 
+
+Tecnologías empleadas 
+Para garantizar un producto innovador, escalable y sostenible, definimos el uso de un stack 
+tecnológico moderno y robusto: 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Definición Integral de Requisitos del Sistema DevSolve 
+Nota: 
+La definición y redacción de los Requisitos Funcionales (RF) y No Funcionales (RNF) del 
+sistema Review Data se realizó siguiendo las directrices del estándar IEEE 830 – Software 
+Requirements Specification , el cual establece las buenas prácticas para elaborar 
+especificaciones claras, verificables, completas y no ambiguas. Este estándar proporciona 
+una estructura formal para describir requisitos de forma precisa, facilitando su 
+comprensión, validación y trazabilidad dentro del proceso de ingeniería de software. 
+Requisitos Funcionales 
+ID Requisito 
+Funcional 
+Actor Descripción 
+RF1 Autenticación de 
+usuario 
+Usuario Permite iniciar sesión con correo y 
+contraseña registrados. Si las 
+credenciales no coinciden, se muestra 
+'Credenciales inválidas' y se niega el 
+acceso. 
+RF2 Carga de 
+datasets 
+Usuario Permite cargar archivos CSV para su 
+análisis de inconsistencias. 
+RF3 Registro de 
+datasets 
+Sistema Registra ID, nombre del archivo, tipo, 
+fecha y hora de carga, número de 
+registros, usuario que cargó y estado del 
+dataset. 
+RF4 Validación 
+estructural del 
+archivo 
+Sistema Verifica columnas obligatorias, tipo de 
+datos, longitud de campos y formato de 
+fechas DD -MM-YYYY y HH:MM antes de 
+almacenar el dataset. 
+RF5 Ejecución de 
+validaciones 
+Usuario Permite seleccionar un dataset cargado y 
+ejecutar reglas de validación para 
+detectar inconsistencias. 
+RF6 Registro de 
+ejecución de 
+validación 
+Sistema Registra ID de ejecución, dataset 
+analizado, usuario que ejecutó, fecha, 
+hora, total de registros analizados, 
+inconsistencias detectadas y estado del 
+proceso. 
+RF7 Gestión de reglas 
+de validación 
+Administrad
+or 
+Permite registrar reglas con ID, nombre, 
+descripción, expresión lógica basada en 
+ER, tipo de regla y nivel de severidad 
+(Critico, alto, medio y bajo) 
+RF8 Clasificación de 
+reglas 
+Sistema Clasifica reglas según su tipo: formato, 
+rango, lógica o campos obligatorios.  
+Formato: reglas que validan la estructura 
+o patrón de un dato, por ejemplo fecha, 
+hora, correo, longitud o tipo de carácter. 
+• Rango: reglas que verifican que un 
+valor esté dentro de límites 
+permitidos, por ejemplo edad 
+entre 18 y 65 o porcentaje entre 0 y 
+100. 
+• Lógica: reglas que evalúan 
+relaciones, dependencias o 
+coherencia entre uno o más 
+campos, por ejemplo fecha_fin 
+mayor que fecha_inicio. 
+• Campos obligatorios: reglas que 
+validan que un campo requerido 
+no esté vacío ni nulo. 
+ 
+RF9 Activación y 
+desactivación de 
+reglas 
+Administrad
+or 
+Permite activar o desactivar reglas sin 
+eliminar registros históricos. 
+RF10 Registro de 
+hallazgos 
+Sistema Registra cada inconsistencia detectada 
+con ID, ejecución, regla infringida, campo 
+afectado, valor detectado, descripción, 
+severidad, fecha y hora. 
+RF11 Consulta de 
+inconsistencias y 
+generación de 
+reportes de 
+hallazgos 
+Usuario Permite visualizar inconsistencias 
+detectadas en un dataset, aquí se 
+mostraran dependiendo el archivo que se 
+suba ya que no todos tienen la misma 
+estructura. Permite generar un reporte 
+PDF con las inconsistencias detectadas. 
+ 
+RF13 Contenido del 
+reporte 
+Sistema Incluye dataset analizado, fecha de 
+ejecución, usuario, total de registros, 
+inconsistencias por severidad y detalle 
+de cada hallazgo. 
+RF14 Recomendacion
+es de corrección 
+Sistema Muestra recomendaciones asociadas a 
+cada regla para corregir inconsistencias 
+con base a los hallazgos detectados en 
+RF 10. 
+RF15 Registro de 
+recomendacione
+s 
+Sistema Solamente se mostrara la 
+recomendación en base a las reglas 
+infringidas durante la revisión. 
+RF16 Generación de 
+estadísticas, 
+visualización de 
+estadísticas y 
+estadísticas 
+mensuales 
+Sistema Calcula estadísticas como número de 
+registros analizados, inconsistencias 
+detectadas y porcentaje de error. 
+ 
+Permite visualizar estadísticas generales 
+del sistema. 
+ 
+Genera estadísticas mensuales del 
+comportamiento de inconsistencias. 
+ 
+ 
+ 
+ 
+ 
+ 
+Requisitos NO Funcionales 
+ID Requisito No Funcional Categoría Descripción 
+RNF1 Tiempo de carga de 
+interfaz 
+Rendimiento Cada pantalla deberá cargarse en 
+máximo 2 segundos. 
+RNF2 Integridad de datos Seguridad El sistema al ser local y al tener que 
+registrarse para poder acceder ya 
+cuenta con seguridad ya que los 
+archivos del usuario estarán 
+resguardados dentro del sistema. 
+RNF3 Restricción de formatos Seguridad Solo se aceptan archivos CSV  
+RNF4 Control de acceso Seguridad El sistema deberá permitir la carga de 
+archivos únicamente en formato CSV , 
+validando previamente la identidad 
+del usuario mediante un token JWT 
+vigente enviado en la cabecera de la 
+petición 
+RNF5 Usabilidad Usabilidad Interfaz clara e intuitiva organizada 
+por módulos. 
+RNF6 Disponibilidad Disponibilidad El sistema estará disponible 24/7 
+salvo mantenimiento programado. 
+RNF7 Escalabilidad Escalabilidad Permite agregar nuevas reglas sin 
+afectar las existentes. 
+RNF8 Exportación de reportes Funcionalidad Permite exportar reportes de 
+inconsistencias en formato PDF . 
+Especificación Funcional de los Módulos del Sistema 
+Review Data 
+ 
+Módulo de Carga de Datos 
+• El sistema permitirá a los usuarios cargar archivos de datos que serán analizados 
+para detectar inconsistencias. 
+ 
+• Los archivos que podrán cargarse serán en formato CSV o JSON, los cuales serán 
+almacenados dentro del sistema para su posterior validación. 
+ 
+• De cada dataset se deberá registrar su identificador, nombre del archivo, tipo de 
+archivo, fecha de carga, número total de registros y el estado del dataset. 
+ 
+• Cada dataset estará asociado al usuario que realizó la carga, permitiendo llevar un 
+control de quién subió cada archivo. 
+ 
+• El sistema deberá validar que la estructura básica del archivo sea correcta antes de 
+iniciar el proceso de análisis. 
+ 
+ 
+ 
+ 
+Módulo de Validación 
+• El sistema contará con un conjunto de reglas de validación que permitirán verificar 
+la integridad y consistencia de los datos contenidos en los datasets. 
+ 
+• Cada regla deberá almacenar un identificador único, nombre, descripción, expresión 
+lógica utilizada para la validación, tipo de regla y nivel de severidad asociado. 
+ 
+• Analiza los archivos para detectar inconsistencias como errores, datos faltantes o 
+valores incorrectos. 
+ 
+• Las reglas podrán clasificarse en diferentes tipos como validaciones de formato, 
+rango, lógica o campos obligatorios. 
+ 
+• Cada regla estará asociada a un nivel de severidad que permitirá clasificar la 
+gravedad de las inconsistencias detectadas. 
+ 
+• Las reglas podrán activarse o desactivarse dentro del sistema, permitiendo modificar 
+dinámicamente el comportamiento de las validaciones. 
+ 
+Módulo de Reporte de Hallazgos 
+• El sistema registrará todas las inconsistencias detectadas durante la ejecución de 
+las validaciones aplicadas a los datasets. 
+ 
+• Cada hallazgo deberá almacenar información como el identificador de la ejecución, 
+la regla que generó la inconsistencia, el campo afectado, el valor detectado y una 
+descripción del error encontrado. 
+ 
+• También se registrará el nivel de severidad asociado al momento de la detección y la 
+fecha en que se identificó la inconsistencia. 
+ 
+• Los hallazgos permitirán a los usuarios identificar de forma clara los errores 
+presentes dentro de los datasets analizados. 
+ 
+• El sistema permitirá generar un reporte en formato PDF que contenga el listado de 
+inconsistencias detectadas durante la ejecución de validaciones. 
+ 
+• El reporte incluirá información como el dataset analizado, fecha de ejecución, total 
+de inconsistencias encontradas, descripción de cada hallazgo, campo afectado, 
+valor detectado y nivel de severidad. 
+ 
+• Este documento podrá descargarse por los usuarios para facilitar la revisión. 
+ 
+ 
+ 
+ 
+ 
+Módulo de Recomendaciones 
+• El sistema contará con un módulo de recomendaciones que permitirá sugerir 
+acciones correctivas o preventivas asociadas a las reglas de validación. 
+ 
+• Cada recomendación estará vinculada a una regla específica que origine cierto tipo 
+de inconsistencia. 
+ 
+• De cada recomendación se almacenará su identificador, descripción, tipo de acción 
+sugerida y estado de activación. 
+ 
+• Las recomendaciones permitirán orientar a los usuarios sobre cómo corregir o 
+prevenir los errores detectados en los datasets. 
+ 
+Módulo de Reporte de Gráficas (Mensual) 
+• El sistema generará estadísticas basadas en los resultados de cada ejecución de 
+validación. 
+ 
+• De cada proceso se almacenará el porcentaje de error detectado. 
+ 
+• El sistema permitirá generar estadísticas que muestren el comportamiento de las 
+inconsistencias detectadas en el mes en curso. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Diagrama Entidad Relación 
+ 
+
+Diagrama Relacional de la Base de Datos 
+ 
+El diagrama de base de datos representa la estructura del sistema de detección de 
+inconsistencias en datasets de una empresa de auto transportes , diseñado para 
+automatizar la validación y análisis de datos cargados al sistema. En primer lugar, el módulo 
+gestión_datos administra a los usuarios y los archivos (datasets) que estos cargan para su 
+análisis. Posteriormente, en el módulo validaciones se definen las reglas de validación, 
+junto con catálogos de tipos de regla y niveles de severidad, que permiten clasific ar los 
+posibles errores encontrados en los datos. Cuando un dataset es procesado, el módulo 
+procesamiento registra cada ejecución de validación y almacena los hallazgos o 
+inconsistencias detectadas, indicando la regla que se violó, el campo afectado y su nivel de 
+severidad. Finalmente, el módulo reportes genera recomendaciones asociadas a las reglas 
+para corregir errores y calcula estadísticas de cada ejecución, como el porcentaje de errores 
+y la cantidad de registros válidos e inválidos, lo que permi te producir reportes analíticos y 
+visualizaciones para el seguimiento de la calidad de los datos. 
+https://dbdiagram.io/d/SISTEMA-DE-INCONSISTENCIAS-69ª868a8a3f0aa31e1d2677b 
+https://dbdocs.io/droldanvivanco/SISTEMA-DE-INCONSISTENCIAS 
+ 
+ 
+ 
+ 
+ 
+ 
+
+Diseño del Sistema 
+Ventana Login 
+Permite a los usuarios autenticarse en el sistema mediante su correo electrónico y 
+contraseña. Solo los usuarios activos podrán acceder a las funcionalidades del sistema. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+Ventana principal 
+Muestra un resumen general del sistema, incluyendo estadísticas de datasets cargados, 
+validaciones ejecutadas e inconsistencias detectadas. También permite acceder a los 
+diferentes módulos de la aplicación. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+Ventana Dataset 
+ 
+Permite a los usuarios cargar archivos de datos en formato CSV o JSON para su análisis. El 
+sistema registra información del archivo y lo prepara para el proceso de validación. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+Ventana Validación 
+ 
+Permite seleccionar un dataset cargado y ejecutar las reglas de validación configuradas en 
+el sistema. Durante el proceso se analiza la información para detectar inconsistencias en 
+los datos. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+Panel de configuración del archivo 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+Ventana Hallazgos 
+Muestra todas las inconsistencias detectadas durante las validaciones realizadas. Desde 
+esta ventana también se puede generar un reporte en formato PDF con los hallazgos 
+encontrados. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+Ventana recomendaciones 
+ 
+Presenta sugerencias y acciones correctivas asociadas a las reglas de validación. Estas 
+recomendaciones ayudan a los usuarios a corregir o prevenir errores en los datos 
+analizados. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+Ventanas estadísticas 
+ 
+Muestra estadísticas sobre las validaciones ejecutadas y las inconsistencias detectadas. 
+Permite analizar el comportamiento de los errores en los datasets a lo largo del tiempo. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+Formato del reporte de viaje 
+ 
+
+Formato del reporte de hallazgos   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+Planificación  
+ 
+ 
+ 
+ 

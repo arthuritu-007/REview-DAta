@@ -1,0 +1,99 @@
+from abc import ABC, abstractmethod
+
+import customtkinter as ctk
+
+
+class IView(ABC):
+    @abstractmethod
+    def get_frame(self) -> ctk.CTkFrame: ...
+
+
+class IViewFactory(ABC):
+    @abstractmethod
+    def create_dashboard(self, master) -> IView: ...
+
+    @abstractmethod
+    def create_dataset_view(self, master) -> IView: ...
+
+    @abstractmethod
+    def create_validation_view(self, master) -> IView: ...
+
+    @abstractmethod
+    def create_findings_view(self, master) -> IView: ...
+
+    @abstractmethod
+    def create_recommendations_view(self, master) -> IView: ...
+
+    @abstractmethod
+    def create_stats_view(self, master) -> IView: ...
+
+
+class IDataService(ABC):
+    @abstractmethod
+    def authenticate(self, email: str, password: str) -> dict | None: ...
+
+    @abstractmethod
+    def set_session(self, token: str) -> bool: ...
+
+    @abstractmethod
+    def get_current_user(self) -> dict | None: ...
+
+    @abstractmethod
+    def get_all_datasets(self) -> list: ...
+
+    @abstractmethod
+    def get_dataset_columns(self, dataset_id: str) -> list[str]: ...
+
+    @abstractmethod
+    def import_dataset(self, file_path: str, schema: dict, original_filename: str | None = None) -> dict: ...
+
+    @abstractmethod
+    def get_rules(self) -> list[dict]: ...
+
+    @abstractmethod
+    def run_validation(self, dataset_id: str, rule_ids: list[str], mapping: dict) -> dict: ...
+
+    @abstractmethod
+    def get_runs(self, dataset_id: str | None = None) -> list[dict]: ...
+
+    @abstractmethod
+    def get_findings(self, dataset_id: str | None = None, run_id: str | None = None) -> list[dict]: ...
+
+    @abstractmethod
+    def export_run_pdf(self, run_id: str, output_path: str) -> None: ...
+
+    @abstractmethod
+    def get_recommendations(self, run_id: str) -> list[dict]: ...
+
+    @abstractmethod
+    def get_dashboard_stats(self) -> dict: ...
+
+    @abstractmethod
+    def get_severity_counts(self, dataset_id: str | None = None) -> dict: ...
+
+    @abstractmethod
+    def get_suggested_required_columns(self) -> list[str]: ...
+
+    @abstractmethod
+    def get_dataset_row_preview(self, dataset_id: str, row_index: int) -> dict | None: ...
+
+    @abstractmethod
+    def get_reports(self) -> list[dict]: ...
+
+    @abstractmethod
+    def get_activity(self, limit: int = 200) -> list[dict]: ...
+
+    @abstractmethod
+    def list_users(self) -> list[dict]: ...
+
+    @abstractmethod
+    def create_user(self, email: str, password: str, role: str = "user", active: bool = True) -> dict: ...
+
+    @abstractmethod
+    def update_user(self, user_id: str, role: str | None = None, active: bool | None = None) -> bool: ...
+
+    @abstractmethod
+    def reset_user_password(self, user_id: str, new_password: str) -> bool: ...
+
+    @abstractmethod
+    def delete_user(self, user_id: str) -> bool: ...
